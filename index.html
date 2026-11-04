@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Feiler Camera Kit Web App</title>
   <style>
     html, body {
@@ -18,10 +18,30 @@
       height: 100vh;
       object-fit: cover;
     }
+    #switch-camera {
+      position: fixed;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: max(24px, env(safe-area-inset-bottom));
+      z-index: 10;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 18px;
+      font: 600 14px/1.2 system-ui, sans-serif;
+      color: #111;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #switch-camera:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
   </style>
 </head>
 <body>
   <canvas id="canvas"></canvas>
+  <button id="switch-camera" type="button" aria-label="Switch camera">Switch camera</button>
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
